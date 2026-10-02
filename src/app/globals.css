@@ -921,3 +921,51 @@ td.jumlah {
 .item.saya {
   background: var(--krem-lembut);
 }
+
+/* ---------- Saran univ (combobox) ---------- */
+.combo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.combo input {
+  font: inherit;
+  font-weight: 600;
+  color: var(--teks);
+  background: #f1f6ff;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 12px 16px;
+  outline: none;
+}
+
+.combo input:focus {
+  border-color: var(--kuning);
+}
+
+/* Di dalam alur (bukan melayang) supaya tidak terpotong modal di layar kecil. */
+.combo-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  background: var(--putih);
+  border: 2px solid var(--biru-100);
+  border-radius: 14px;
+}
+
+.combo-list li {
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teks);
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.combo-list li:hover,
+.combo-list li.aktif {
+  background: var(--biru-100);
+  color: var(--biru-700);
+}

@@ -2,12 +2,20 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import InputUniv from "@/components/InputUniv";
 import { bersihkanUsername, REGEX_USERNAME } from "@/lib/sheet";
 
 type Layar = "awal" | "login" | "daftar";
 
 /** Modal terkunci: tidak ada tombol tutup, klik di luar tidak berpengaruh. */
-export default function Gerbang({ tersambung }: { tersambung: boolean }) {
+export default function Gerbang({
+  tersambung,
+  daftarUniv,
+}: {
+  tersambung: boolean;
+  /** Hanya nama univ (tanpa data orang) untuk saran saat mendaftar. */
+  daftarUniv: string[];
+}) {
   const router = useRouter();
   const [layar, setLayar] = useState<Layar>("awal");
   const [nama, setNama] = useState("");
@@ -80,14 +88,7 @@ export default function Gerbang({ tersambung }: { tersambung: boolean }) {
                   autoFocus
                   aria-label="Nama"
                 />
-                <input
-                  value={univ}
-                  onChange={(e) => setUniv(e.target.value)}
-                  placeholder="Asal universitas"
-                  maxLength={100}
-                  required
-                  aria-label="Asal universitas"
-                />
+                <InputUniv value={univ} onChange={setUniv} daftar={daftarUniv} />
               </>
             )}
             <input

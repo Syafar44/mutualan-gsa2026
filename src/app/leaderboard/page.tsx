@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Dekorasi from "@/components/Dekorasi";
 import Gerbang from "@/components/Gerbang";
 import { COOKIE_SAYA } from "@/lib/sesi";
-import { getData } from "@/lib/sheet";
+import { daftarUnivUnik, getData } from "@/lib/sheet";
 
 export const dynamic = "force-dynamic";
 
@@ -37,7 +37,7 @@ export default async function Leaderboard() {
       <>
         {header}
         {sumber === "demo" && <div className="notice">⚠️ {error}</div>}
-        <Gerbang tersambung={tersambung} />
+        <Gerbang tersambung={tersambung} daftarUniv={daftarUnivUnik(anggota)} />
       </>
     );
   }

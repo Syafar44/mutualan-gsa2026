@@ -59,14 +59,17 @@ export default function DaftarMutualan({
 
   const hasil = useMemo(() => {
     const q = kunci.trim().toLowerCase();
-    return orangLain.filter((a) => {
-      if (univ && a.univ !== univ) return false;
-      const sudah = sudahFollow.has(pasangan(saya.instagram, a.instagram));
-      if (filter === "sudah" && !sudah) return false;
-      if (filter === "belum" && sudah) return false;
-      if (!q) return true;
-      return a.nama.toLowerCase().includes(q) || a.instagram.includes(q);
-    });
+    const sudah = (a: Anggota) => sudahFollow.has(pasangan(saya.instagram, a.instagram));
+    return orangLain
+      .filter((a) => {
+        if (univ && a.univ !== univ) return false;
+        if (filter === "sudah" && !sudah(a)) return false;
+        if (filter === "belum" && sudah(a)) return false;
+        if (!q) return true;
+        return a.nama.toLowerCase().includes(q) || a.instagram.includes(q);
+      })
+      // Yang belum difollow di atas, yang sudah di bawah; urutan lain tetap seperti di sheet.
+      .sort((x, y) => Number(sudah(x)) - Number(sudah(y)));
   }, [orangLain, kunci, univ, filter, saya, sudahFollow]);
 
   const jumlahSudah = orangLain.filter((a) => sudahFollow.has(pasangan(saya.instagram, a.instagram))).length;

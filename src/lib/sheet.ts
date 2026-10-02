@@ -147,3 +147,13 @@ export async function getData(): Promise<HasilData> {
     };
   }
 }
+
+/** Nama univ unik (tanpa beda huruf besar/kecil), urut abjad. */
+export function daftarUnivUnik(anggota: Anggota[]): string[] {
+  const peta = new Map<string, string>();
+  for (const a of anggota) {
+    const k = a.univ.toLowerCase();
+    if (a.univ !== "-" && !peta.has(k)) peta.set(k, a.univ);
+  }
+  return [...peta.values()].sort((x, y) => x.localeCompare(y, "id"));
+}

@@ -4,7 +4,7 @@ import DaftarMutualan from "@/components/DaftarMutualan";
 import Dekorasi from "@/components/Dekorasi";
 import Gerbang from "@/components/Gerbang";
 import { COOKIE_SAYA } from "@/lib/sesi";
-import { getData } from "@/lib/sheet";
+import { daftarUnivUnik, getData } from "@/lib/sheet";
 
 export const dynamic = "force-dynamic";
 
@@ -34,7 +34,7 @@ export default async function Beranda() {
         <DaftarMutualan saya={saya} anggota={anggota} follows={follows} />
       ) : (
         // Daftar anggota sengaja tidak dikirim ke browser sebelum login.
-        <Gerbang tersambung={tersambung} />
+        <Gerbang tersambung={tersambung} daftarUniv={daftarUnivUnik(anggota)} />
       )}
     </>
   );
