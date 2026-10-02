@@ -661,7 +661,8 @@ td.jumlah {
 .daftar {
   list-style: none;
   margin: 0;
-  padding: 6px 0;
+  padding: 0;
+  overflow: hidden;
   background: var(--putih);
   border-radius: 22px;
   box-shadow: 0 20px 46px rgba(8, 40, 110, 0.25);
@@ -824,4 +825,99 @@ td.jumlah {
   font-weight: 700;
   font-size: 13.5px;
   padding: 4px;
+}
+
+/* ---------- Navbar: menu ---------- */
+.nav {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  min-width: 0;
+}
+
+.brand-teks {
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+
+.nav-links a.aktif {
+  background: var(--putih);
+  color: var(--biru-700);
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 10px 12px;
+  }
+  .brand-teks {
+    display: none;
+  }
+  .nav-links a {
+    padding: 7px 12px;
+    font-size: 13.5px;
+  }
+}
+
+/* ---------- Leaderboard ---------- */
+.page-head.kecil {
+  min-height: clamp(150px, 22vw, 210px);
+}
+
+.sub-judul {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.rank {
+  flex: none;
+  width: 36px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--teks-lembut);
+}
+
+.rank.top {
+  font-size: 26px;
+}
+
+.skor {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.1;
+}
+
+.skor b {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--biru-700);
+}
+
+.skor small {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--teks-lembut);
+}
+
+.item.saya {
+  background: var(--krem-lembut);
 }

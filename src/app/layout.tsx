@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
+import Nav from "@/components/Nav";
 import "./globals.css";
 
 const TITLE = "Mutualan Instagram GSA Batch 2";
@@ -38,12 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="id">
       <body>
-        <nav className="nav">
-          <Link href="/" className="brand">
-            <Image src="/inti/inti-1.avif" alt="" width={30} height={30} unoptimized aria-hidden />
-            Mutualan GSA
-          </Link>
-        </nav>
+        <Nav />
         <main className="main">{children}</main>
       </body>
     </html>
