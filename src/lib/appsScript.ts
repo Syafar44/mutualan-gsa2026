@@ -17,7 +17,7 @@ export async function panggilScript(aksi: Record<string, unknown>): Promise<Hasi
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({ ...aksi, token: process.env.APPS_SCRIPT_TOKEN ?? "" }),
+      body: JSON.stringify({ ...aksi, token: (process.env.APPS_SCRIPT_TOKEN ?? "").trim() }),
       redirect: "follow",
     });
     const hasil = await res.json();
