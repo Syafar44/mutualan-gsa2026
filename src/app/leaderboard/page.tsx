@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "GSA yang paling banyak memfollow di mutualan Instagram",
 };
 
-const BATAS = 100;
+const BATAS = 20;
 const MEDALI = ["🥇", "🥈", "🥉"];
 
 export default async function Leaderboard() {
