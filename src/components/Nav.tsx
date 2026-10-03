@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const MENU = [
   { href: "/", label: "Mutualan" },
   { href: "/leaderboard", label: "Leaderboard" },
+  { href: "/rangkuman", label: "Rangkuman" },
 ];
 
 export default function Nav() {
