@@ -7,7 +7,9 @@ import { usePathname } from "next/navigation";
 const MENU = [
   { href: "/", label: "Mutualan" },
   { href: "/leaderboard", label: "Leaderboard" },
-  { href: "/rangkuman", label: "Rangkuman" },
+  // Disembunyikan dulu; halaman /rangkuman tetap bisa dibuka lewat alamatnya.
+  // Hapus `tersembunyi` untuk menampilkannya lagi.
+  { href: "/rangkuman", label: "Rangkuman", tersembunyi: true },
 ];
 
 export default function Nav() {
@@ -20,7 +22,7 @@ export default function Nav() {
         <span className="brand-teks">Mutualan GSA</span>
       </Link>
       <div className="nav-links">
-        {MENU.map((m) => (
+        {MENU.filter((m) => !m.tersembunyi).map((m) => (
           <Link
             key={m.href}
             href={m.href}
